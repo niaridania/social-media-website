@@ -2,14 +2,19 @@
 
 
 :root {
-    --color-white: hsl(252, 30%, 100%);
-    --color-light: hsl(233, 11%, 97%);
+    --primary-color-hue: 252;
+    --dark-color-lightness: 17%;
+    --light-color-lightness: 95%;
+    --white-color-lightness: 100%;
+
+    --color-white: hsl(252, 30%, var(--white-color-lightness));
+    --color-light: hsl(252, 30%, var(--light-color-lightness));
     --color-grey: hsl(252, 15%, 65%);
-    --color-primary: hsl(233, 60%, 16%);
+    --color-primary: hsl(var(--primary-color-hue), 75%, 60%);
     --color-secondary: hsl(252, 100%, 90%);
     --color-success: hsl(120, 95%, 65%);
     --color-danger: hsl(0, 95%, 65%);
-    --color-dark: hsl(252, 30%, 17%);
+    --color-dark: hsl(252, 30%, var(--dark-color-lightness));
     --color-black: hsl(252, 30%, 10%);
 
     --border-radius: 2rem;
@@ -224,7 +229,7 @@ main .container .left .profile {
 }
 
 .left .sidebar .menu-item:last-child.active {
-    border-top-left-radius: var(--card-border-radius);
+    border-bottom-left-radius: var(--card-border-radius);
     overflow: hidden;
 }
 
@@ -306,7 +311,7 @@ main .container .left .profile {
 }
 
 .middle .stories .story .name {
-    z-index: 2;
+    z-index: 0;
 }
 
 .middle .stories .story:nth-child(1) {
@@ -559,6 +564,7 @@ main .container .right {
     padding: 3rem;
     border-radius: var(--card-border-radius);
     width:50%;
+    box-shadow: 0 0 1rem var(--color-primary);
 }
 
 /* =============== Font Size ============== */
@@ -721,6 +727,10 @@ MEDIA QUERIES FOR SMALL LAPTOP AND BIG TABLETS
     .left .btn {
         display: none;
     }
+
+    .customize-theme .card {
+        width: 80vw;
+    }
 }
 
 /* ================= 
@@ -745,13 +755,13 @@ MEDIA QUERIES FOR SMALL TABLETS AND MOBILE PHONES
     }
 
     /* Notification Popup */
-    .left .notification-popup { 
+    .left .notifications-popup { 
         position: absolute;
         left: -20rem;
         width: 20rem;
     }
 
-    .left .notification-popup::before {
+    .left .notifications-popup::before {
         display: absolute;
         top: 1.3rem;
         left: calc(20rem - 0.6rem);
@@ -764,5 +774,9 @@ MEDIA QUERIES FOR SMALL TABLETS AND MOBILE PHONES
 
     main .container .right {
         display: none;
+    }
+
+    .customize-theme .card {
+        width: 80vw; 
     }
 }
